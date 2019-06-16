@@ -12,13 +12,8 @@ def hmm_viterbi(obs, states, start_p, trans_p, emit_p):
         V.append({})
         for y in states:
             V[t][y] = max([(V[t - 1][y0] * trans_p[y0][y] * emit_p[y][obs[t]]) for y0 in states])
-            result = []
-    print(V)
-    # for vector in V:
-    #     temp = {}
-    #     temp[vector.keys()[np.argmax(vector.values())]] = max(vector.values())
-    #     result.append(temp)
-    # return result
+    for vector in V:
+        print(max(zip(vector.values(), vector.keys())))
 
 
 states = ('OUTPUT1', 'OUTPUT2', 'OUTPUT3')
