@@ -21,3 +21,20 @@ def hmm_viterbi(obs, states, start_p, trans_p, emit_p):
         temp[vector.keys()[np.argmax(vector.values())]] = max(vector.values())
         result.append(temp)
     return result
+
+
+states = ('OUT1''OUT2', 'OUT3')
+obs = ('INPUT1', 'INPUT2', 'INPUT3')
+start_p = {'OUT1': 0.63, 'OUT2': 0.17, 'OUT3': 0.20}
+trans_p = {
+    'OUT1': {'OUT1': 0.50, 'OUT2': 0.375, 'OUT3': 0.125},
+    'OUT2': {'OUT1': 0.25, 'OUT2': 0.125, 'OUT3': 0.625},
+    'OUT3': {'OUT1': 0.25, 'OUT2': 0.375, 'OUT3': 0.375},
+}
+emit_p = {
+    'OUT1': {'INPUT1': 0.60, 'INPUT2': 0.20, 'INPUT3': 0.15, 'INPUT4': 0.05},
+    'OUT2': {'INPUT1': 0.25, 'INPUT2': 0.25, 'INPUT3': 0.25, 'INPUT4': 0.25},
+    'OUT3': {'INPUT1': 0.05, 'INPUT2': 0.10, 'INPUT3': 0.35, 'INPUT4': 0.50},
+}
+
+print(hmm_viterbi(obs, states, start_p, trans_p, emit_p))
