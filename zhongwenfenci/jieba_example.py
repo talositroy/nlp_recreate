@@ -1,9 +1,8 @@
 import jieba
 
-sent = '中文分词是文本处理不可或缺的一步！'
+sent = r'中文分词是文本处理不可或缺的一步！'
 
 seg_list = jieba.cut(sent, cut_all=True)
-
 print('全模式：', '/ '.join(seg_list))
 
 seg_list = jieba.cut(sent, cut_all=False)
