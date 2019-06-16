@@ -13,6 +13,7 @@ def hmm_viterbi(obs, states, start_p, trans_p, emit_p):
         for y in states:
             V[t][y] = max([(V[t - 1][y0] * trans_p[y0][y] * emit_p[y][obs[t]]) for y0 in states])
     for vector in V:
+        # 查找每个时间下概率最大的状态
         print(max(zip(vector.values(), vector.keys())))
 
 
