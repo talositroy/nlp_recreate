@@ -1,6 +1,3 @@
-import numpy as np
-
-
 def hmm_viterbi(obs, states, start_p, trans_p, emit_p):
     # obs观察序列
     # states隐状态
@@ -16,11 +13,12 @@ def hmm_viterbi(obs, states, start_p, trans_p, emit_p):
         for y in states:
             V[t][y] = max([(V[t - 1][y0] * trans_p[y0][y] * emit_p[y][obs[t]]) for y0 in states])
             result = []
-    for vector in V:
-        temp = {}
-        temp[vector.keys()[np.argmax(vector.values())]] = max(vector.values())
-        result.append(temp)
-    return result
+    print(V)
+    # for vector in V:
+    #     temp = {}
+    #     temp[vector.keys()[np.argmax(vector.values())]] = max(vector.values())
+    #     result.append(temp)
+    # return result
 
 
 states = ('OUTPUT1', 'OUTPUT2', 'OUTPUT3')
@@ -37,4 +35,4 @@ emit_p = {
     'OUTPUT3': {'INPUT1': 0.05, 'INPUT2': 0.10, 'INPUT3': 0.35, 'INPUT4': 0.50},
 }
 
-print(hmm_viterbi(obs, states, start_p, trans_p, emit_p))
+hmm_viterbi(obs, states, start_p, trans_p, emit_p)
