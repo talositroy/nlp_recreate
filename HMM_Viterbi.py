@@ -11,7 +11,7 @@ def hmm_viterbi(obs, states, start_p, trans_p, emit_p):
     V = [{}]
     for y in states:
         V[0][y] = start_p[y] * emit_p[y][obs[0]]
-    for t in range[1, len(obs)]:
+    for t in range(1, len(obs)):
         V.append({})
         for y in states:
             V[t][y] = max([(V[t - 1][y0] * trans_p[y0][y] * emit_p[y][obs[t]]) for y0 in states])
@@ -23,18 +23,18 @@ def hmm_viterbi(obs, states, start_p, trans_p, emit_p):
     return result
 
 
-states = ('OUT1''OUT2', 'OUT3')
+states = ('OUTPUT1', 'OUTPUT2', 'OUTPUT3')
 obs = ('INPUT1', 'INPUT2', 'INPUT3')
-start_p = {'OUT1': 0.63, 'OUT2': 0.17, 'OUT3': 0.20}
+start_p = {'OUTPUT1': 0.63, 'OUTPUT2': 0.17, 'OUTPUT3': 0.20}
 trans_p = {
-    'OUT1': {'OUT1': 0.50, 'OUT2': 0.375, 'OUT3': 0.125},
-    'OUT2': {'OUT1': 0.25, 'OUT2': 0.125, 'OUT3': 0.625},
-    'OUT3': {'OUT1': 0.25, 'OUT2': 0.375, 'OUT3': 0.375},
+    'OUTPUT1': {'OUTPUT1': 0.50, 'OUTPUT2': 0.375, 'OUTPUT3': 0.125},
+    'OUTPUT2': {'OUTPUT1': 0.25, 'OUTPUT2': 0.125, 'OUTPUT3': 0.625},
+    'OUTPUT3': {'OUTPUT1': 0.25, 'OUTPUT2': 0.375, 'OUTPUT3': 0.375},
 }
 emit_p = {
-    'OUT1': {'INPUT1': 0.60, 'INPUT2': 0.20, 'INPUT3': 0.15, 'INPUT4': 0.05},
-    'OUT2': {'INPUT1': 0.25, 'INPUT2': 0.25, 'INPUT3': 0.25, 'INPUT4': 0.25},
-    'OUT3': {'INPUT1': 0.05, 'INPUT2': 0.10, 'INPUT3': 0.35, 'INPUT4': 0.50},
+    'OUTPUT1': {'INPUT1': 0.60, 'INPUT2': 0.20, 'INPUT3': 0.15, 'INPUT4': 0.05},
+    'OUTPUT2': {'INPUT1': 0.25, 'INPUT2': 0.25, 'INPUT3': 0.25, 'INPUT4': 0.25},
+    'OUTPUT3': {'INPUT1': 0.05, 'INPUT2': 0.10, 'INPUT3': 0.35, 'INPUT4': 0.50},
 }
 
 print(hmm_viterbi(obs, states, start_p, trans_p, emit_p))
