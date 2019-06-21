@@ -26,7 +26,7 @@ def count_words(text):
 
 
 def test_run():
-    with open("input.txt", "r") as f:
+    with open("udacity/input.txt", "r") as f:
         text = f.read()
         counts = count_words(text)
         sorted_counts = sorted(counts.items(), key=lambda pair: pair[1], reverse=True)
