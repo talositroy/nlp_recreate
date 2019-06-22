@@ -8,10 +8,12 @@ def count_words(text):
     counts = dict()  # dictionary of { <word>: <count> } pairs to return
 
     # TODO: Convert to lowercase
-    text = text.lower()
+    text = text.lower().strip()
+
     # TODO: Split text into tokens (words), leaving out punctuation
     # (Hint: Use regex to split on non-alphanumeric characters)
-    text_list = re.split(r'\W+', text, 0)
+    text = re.sub('[^a-zA-Z0-9]', ' ', text).strip()
+    text_list = re.split(r'\s+', text, 0)
     # TODO: Aggregate word counts using a dictionary
     counts[text_list[0]] = 1
     for i in range(1, len(text_list)):
