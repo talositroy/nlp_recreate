@@ -1,7 +1,7 @@
 from nltk.tokenize import word_tokenize
 from nltk.tokenize import sent_tokenize
 from nltk.corpus import stopwords
-from nltk import pos_tag
+from nltk import pos_tag, ne_chunk
 
 file = open("input.txt", "r")
 text = file.read().lower()
@@ -24,3 +24,7 @@ print(words_s_ed)
 # 词性标注
 print('---------词性标注---------')
 print(pos_tag(words))
+# 命名实体识别
+print('---------命名实体识别---------')
+words2 = "Antonio joined Udacity Inc. in California."
+ne_chunk(pos_tag(word_tokenize(words2)))
