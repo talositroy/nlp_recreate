@@ -1,6 +1,7 @@
 from nltk.tokenize import word_tokenize
 from nltk.tokenize import sent_tokenize
 from nltk.corpus import stopwords
+from nltk import pos_tag
 
 file = open("input.txt", "r")
 text = file.read().lower()
@@ -20,3 +21,6 @@ print(stop_word)
 words_s_ed = [w for w in words if w not in stop_word]
 print('---------去除停用词词---------')
 print(words_s_ed)
+# 词性标注
+print('---------词性标注---------')
+print(pos_tag(words))
