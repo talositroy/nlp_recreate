@@ -6,11 +6,9 @@ w = a * wf * qf / q
 print(w)
 aa = pow(w / 1000, 1 / 3)
 print(aa)
-p = 0.1
-r = pow((83.641 * pow(aa, 0.087) / p), 1 / 1.087)
+p = 0.049
+r = pow(aa, 2) * pow((83.641 / p), 1 / 2.087)
 print(r)
 
 # xp = 83.641 * pow((20), -2.087)
 # print(xp)
-
-print(83.641 * pow(1.54, 0.087) / pow(505, 1.087))
