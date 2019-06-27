@@ -20,5 +20,5 @@ p_string = text.split('\\')
 
 
 for i in range(len(p_string)):
-    if (re.search('[fro].', p_string[i])):
+    if (re.search('^.', p_string[i])):
         print(i, ':::', p_string[i])
